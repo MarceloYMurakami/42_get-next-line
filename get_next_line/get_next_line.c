@@ -6,7 +6,7 @@
 /*   By: mmurakam <mmurakam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 16:53:05 by mmurakam          #+#    #+#             */
-/*   Updated: 2020/02/25 21:10:26 by mmurakam         ###   ########.fr       */
+/*   Updated: 2020/05/17 20:34:07 by mmurakam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 int		get_next_line(int fd, char **line)
 {
-	if (!(ft_validate(fd)));
-		return (0);
+	int			i;
+	char		*tmp;
+	char		*queue;
+	static char	*line;
+
+	if (fd < 0 || BUFFER_SIZE < 1)
+		return (-1);
+
 
 }
