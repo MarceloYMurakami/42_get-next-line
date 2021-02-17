@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 16:47:53 by mmurakam          #+#    #+#             */
-/*   Updated: 2021/02/17 13:11:06 by marvin           ###   ########.fr       */
+/*   Updated: 2021/02/17 16:35:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-# 	define BUFFER_SIZE 10
+# 	define BUFFER_SIZE 2
 # endif
-# define LBREAK '\n'
+# define LBREAK '\n' | 'LF'
 
 int					ft_validate(int fd);
 char				*ft_clear_line(char	*line);
