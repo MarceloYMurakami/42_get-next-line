@@ -3,15 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmurakam <mmurakam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 16:48:33 by mmurakam          #+#    #+#             */
-/*   Updated: 2020/05/17 19:27:41 by mmurakam         ###   ########.fr       */
+/*   Updated: 2021/02/17 13:11:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-z
+# include <stdio.h>
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void				*ptr;
+	unsigned int		i;
+
+	i = 0;
+	if (!(ptr = malloc((sizeof(char) * (nmemb * size)))))
+		return (NULL);
+	while (i < (nmemb * size))
+	{
+		((char *)ptr)[i] = 0;
+		i++;
+	}
+	return (ptr);
+}
+
 size_t	ft_strlen(const char *str)
 {
 	int count;
@@ -22,23 +39,22 @@ size_t	ft_strlen(const char *str)
 	return (count);
 }
 
-char	*ft_strrchr(const char *str, int c)
+int	ft_strchr(const char *str, int c)
 {
-	unsigned int	i;
-	unsigned char	*pstr;
+	unsigned char *pstr;
+	int i;
 
-	i = 1;
+	i = 0;
 	pstr = (unsigned char *)str;
-	while (*pstr++ != '\0')
-		i++;
-	while (i > 0)
+	while (pstr[i] != '\0')
 	{
-		pstr--;
-		if (*pstr == c)
-			return ((char *)pstr);
-		i--;
+		if (pstr[i] == c)
+			return (i);
+		i++;
 	}
-	return (NULL);
+	if (pstr[i] == c)
+		return (i);
+	return (-1);
 }
 
 char	*ft_strdup(const char *s)
@@ -112,4 +128,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub[i] = '\0';
 	return (sub);
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmurakam <mmurakam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 16:47:53 by mmurakam          #+#    #+#             */
-/*   Updated: 2020/05/17 19:42:36 by mmurakam         ###   ########.fr       */
+/*   Updated: 2021/02/17 13:11:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,21 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
+# include <fcntl.h>
 
-# define BUFFER_SIZE 1024
+# ifndef BUFFER_SIZE
+# 	define BUFFER_SIZE 10
+# endif
 # define LBREAK '\n'
 
 int					ft_validate(int fd);
 char				*ft_clear_line(char	*line);
-size_t				ft_strlen(const char *str);
-char				*ft_strrchr(const char *str, int c);
-char				*ft_strdup(const char *s);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
+int					ft_strchr(const char *str, int c);
+size_t				ft_strlen(const char *str);
+void				*ft_calloc(size_t nmemb, size_t size);
+char				*ft_strdup(const char *s);
 
 #endif
