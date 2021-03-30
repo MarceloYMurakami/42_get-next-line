@@ -27,10 +27,10 @@ int get_next_line(int fd, char **line)
 	static char 	*str;
 
 	i = 1;
-	buff = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buff = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if ((str == NULL) || (str[0] == '\0'))
 	{
-		str = ft_calloc((BUFFER_SIZE ), sizeof(char));
+		str = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 		len = read(fd, str, BUFFER_SIZE);
 		if (len == 0)
 			return(0);
@@ -44,8 +44,6 @@ int get_next_line(int fd, char **line)
 		str = ft_calloc((BUFFER_SIZE * i), sizeof(char));
 		str = ft_strdup(buff);
 		len = read(fd, buff, BUFFER_SIZE);
-		buff[BUFFER_SIZE] = '\0';
-		str = ft_strjoin(str, buff);
 		if (len == 0)
 		{
 			*line = ft_strdup(str);
@@ -53,6 +51,8 @@ int get_next_line(int fd, char **line)
 			free(buff);
 			return (0);
 		}
+		buff[len] = '\0';
+		str = ft_strjoin(str, buff);
 		free(buff);
 		i++;
 	}
